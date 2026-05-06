@@ -1,117 +1,146 @@
-# EDAS-lakehouse-repo
+# EDAS · Lakehouse Repository
 
-Data Analysis Projects — personal & university EDAs, experiments, and a lightweight data lakehouse/warehouse for curated datasets and analysis artifacts.
+> *Exploratory Data Analysis, curated datasets, and reproducible research artifacts — organized as a personal data lakehouse.*
 
-Description
-This repository collects Jupyter notebook analyses, curated datasets, small permissioned source samples, and supporting code for exploratory data analysis (EDAs), course assignments, and personal projects. The repository is organized for reproducibility and safe handling of personal or sensitive data.
+**Owner:** [AOngomefen](https://github.com/AOngomefen) &nbsp;|&nbsp; **Stack:** Python · SQL · Pandas · NumPy · Matplotlib · Tableau · Streamlit · Jupyter
 
-Repository name note
-You asked for the repository name to be "EDAS-lakehouse-repo". I cannot rename the GitHub repository directly from this chat. To rename the repo yourself, go to Settings → Repository name, or use the GitHub API (see docs below). This README uses the chosen name and is ready for commit; once you rename the repo, the README remains valid.
+---
 
-Table of contents
-- Overview
-- Goals
-- Repository structure
-- Getting started
-- Lakehouse & workflow
-- Data handling, privacy & permissions
-- Contributing & access requests
-- Environment & reproducibility
-- License & attribution
-- Contact
+## Overview
 
-Overview
-This repository contains:
-- Jupyter notebooks with EDAs, experiments, and course assignments (.ipynb)
-- Curated datasets and small, permissioned source samples (where allowed)
-- Helper scripts and reusable modules
-- Documentation and governance for dataset permissions and access
+This repository is a living collection of data analysis projects, course assignments, and independent research. It functions as a lightweight **data lakehouse** — a single, governed source of truth for raw ingestion, staged transformations, and curated, analysis-ready datasets.
 
-Goals
-- Centralize course work and personal data-analysis projects
-- Maintain curated datasets and reproducible analyses
-- Provide clear rules for handling personal/sensitive data and access requests
+Projects span public health, environmental science, and personal performance analytics, built with a consistent emphasis on **reproducibility**, **clean data governance**, and **clear visual storytelling**.
 
-Recommended repository structure
-- data/
-  - raw/        — raw source files (do NOT commit sensitive or large raw data)
-  - staging/    — working files used during cleaning/transformations
-  - curated/    — cleaned, documented datasets (ok to include if permitted)
-  - metadata/   — dataset schemas, provenance, README per dataset
-- notebooks/    — Jupyter notebooks (.ipynb)
-- src/          — reusable code and helper modules
-- docs/         — documentation, data access instructions, slides
-- assignments/  — course assignments and starter code
-- .github/      — templates, Actions, issue/PR templates
-- README.md
-- .gitignore
-- requirements.txt or environment.yml
-- LICENSE
+---
 
-Getting started
-1. Clone the repo (adjust URL after renaming if you rename the repository):
-```bash
-git clone https://github.com/AOngomefen/DATA-110-21843.git
-cd DATA-110-21843
+## Projects
+
+### Women's Wellbeing Data Dashboard
+`Python · SQL · Tableau · Pandas`
+
+Analyzed national and sub-national women's well-being data sourced from public health and economic databases. Cleaned and modeled complex, multi-dimensional datasets using Python and SQL, then designed an interactive **Tableau dashboard** visualizing key indicators across health, economic empowerment, and social equity dimensions.
+
+---
+
+### Running Performance Dashboard
+`Python · Streamlit · Pandas · SQLite`
+
+An end-to-end personal analytics application tracking pace, distance, heart rate, and VO₂ max over time. Performance logs are managed with **Pandas** and persisted in **SQLite**, with a clean **Streamlit** interface built around user-focused visualizations and trend analysis.
+
+---
+
+### CO₂ Global Emissions Analysis
+`Python · Pandas · Matplotlib`
+📄 `CO2_global_emission_Project_fall25.ipynb` · `co2_global_emissions_lab_clean.csv`
+
+Explored global CO₂ emission trends using cleaned time-series data. Applied exploratory analysis techniques to identify regional patterns, per-capita emission disparities, and longitudinal trends across the industrial era.
+
+---
+
+### HIV/AIDS Diagnoses — Neighborhood, Sex & Race/Ethnicity
+`Python · Pandas · Matplotlib`
+📄 `HIV_AIDS_Diagnosis_Project.ipynb` · `HIV_AIDS_Diagnoses_by_Neighborhood_Sex_and_Race_Ethnicity.csv`
+
+A public health EDA examining HIV/AIDS diagnosis rates segmented by neighborhood, sex, and race/ethnicity. Analysis surfaces disparities across demographic groups and geographies to support data-informed public health understanding.
+
+---
+
+### Titanic Survival Analysis
+`Python · Pandas · Matplotlib`
+📄 `Titanic_Data_Project.ipynb`
+
+Classic structured data project exploring survival patterns on the Titanic. Covers data cleaning, feature analysis, demographic breakdowns, and visualization of survival rates across passenger class, age, and sex.
+
+---
+
+## Reference Modules
+
+The following files are **reference and utility notebooks** currently being cleaned and organized as part of an ongoing repository restructure. They contain reusable patterns, experimental code, and foundational exercises.
+
+| File | Description |
+|------|-------------|
+| `ref0.md` | Markdown reference and formatting exercises |
+| `ref1.ipynb` | Reference notebook — utility patterns and exploratory snippets |
+| `ref2.ipynb` | Reference notebook — data wrangling and cleaning techniques |
+| `ref3.ipynb` | Reference notebook — visualization and analysis experiments |
+
+> **Note:** These modules are actively being refactored. Content may be reorganized into `src/` or `notebooks/` as the lakehouse structure matures.
+
+---
+
+## Repository Structure
+
+```
+EDAS-lakehouse-repo/
+├── data/
+│   ├── raw/          # Source files — do NOT commit sensitive or large raw data
+│   ├── staging/      # Working files used during cleaning and transformation
+│   ├── curated/      # Cleaned, documented datasets cleared for inclusion
+│   └── metadata/     # Schemas, provenance notes, per-dataset READMEs
+├── notebooks/        # Jupyter notebooks (.ipynb)
+├── src/              # Reusable code and helper modules
+├── docs/             # Documentation, access instructions, slides
+├── assignments/      # Course assignments and starter code
+├── .github/          # Issue templates, Actions, PR templates
+├── README.md
+├── .gitignore
+└── requirements.txt
 ```
 
-2. Create a Python virtual environment and install dependencies:
+---
+
+## Getting Started
+
 ```bash
+# Clone the repository
+git clone https://github.com/AOngomefen/EDAS-lakehouse-repo.git
+cd EDAS-lakehouse-repo
+
+# Create and activate a virtual environment
 python -m venv .venv
-source .venv/bin/activate    # macOS / Linux
-.venv\Scripts\activate      # Windows
-pip install -r requirements.txt
-```
+source .venv/bin/activate        # macOS / Linux
+.venv\Scripts\activate           # Windows
 
-3. Run Jupyter Lab/Notebook:
-```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Launch Jupyter Lab
 jupyter lab
 ```
 
-Lakehouse & workflow guidance
-- Keep raw or sensitive datasets out of the public repo. Store only curated or synthetic samples and metadata in the repository.
-- Use data/staging for intermediate files and transformations.
-- Use data/curated as the canonical datasets for notebooks; include a metadata file describing provenance and any anonymization steps.
-- Track transformation scripts in src/ and reference them from notebooks for reproducibility.
+---
 
-Data handling, privacy & permissions (required reading)
-- Never commit personally identifiable information (PII), health, financial, or other sensitive records to a public repository.
-- For restricted datasets:
-  - Do NOT add the raw dataset to the repo. Instead include a synthetic sample or a small anonymized sample clearly labeled as such.
-  - Add a data/<dataset>/README.md describing provenance, anonymization, and permitted uses.
-  - Add docs/data_access.md explaining how to request access and what approvals are required.
-- Access requests should be handled outside the public repository and recorded securely. Use Issues only to track requests and reference external approvals.
+## Data Governance
 
-Contributing & access requests
-- Fork the repository, make changes in a branch, and open a PR with a clear description.
-- For changes that affect datasets or permissions, include provenance notes and confirm permission/eligibility for sharing.
-- Add a CONTRIBUTING.md and CODE_OF_CONDUCT.md if you expect external contributors.
+This repository follows strict data handling practices:
 
-Environment & reproducibility
-- Pin dependencies in requirements.txt or environment.yml.
-- Use small sample datasets in the repo for runnable notebooks. For large datasets, provide download instructions and checks in notebooks to skip heavy steps if data is missing.
+- **No PII or sensitive records** are committed to the public repository
+- Restricted datasets are represented by anonymized or synthetic samples only
+- Each dataset in `data/curated/` includes a provenance `README.md`
+- Access requests for restricted data are handled externally and tracked via Issues
 
-License, attribution & citations
-- Add a LICENSE file (MIT or another OSI-approved license is recommended for code). For datasets, include dataset-specific licenses and citation instructions in data/<dataset>/README.md.
+**Pre-commit checklist:**
 
-Suggested .gitignore entries
-See the companion .gitignore added in this commit for recommended ignores (virtualenvs, notebook checkpoints, raw data folders, and editor junk).
-
-Security checklist (before committing data)
-- Is the data anonymized? Yes / No
-- Is the data allowed to be published publicly? Yes / No
-- If “No”, do not commit. Provide a link or instructions instead.
-- Is provenance/metadata included? Yes / No
-
-How to rename the repository (if you want to make the name official)
-- Web UI: Settings → Repository name → change to EDAS-lakehouse-repo
-- GitHub API (curl):
-  curl -X PATCH -H "Authorization: token YOUR_TOKEN" \
-    -H "Accept: application/vnd.github+json" \
-    https://api.github.com/repos/AOngomefen/DATA-110-21843 \
-    -d '{"name":"EDAS-lakehouse-repo"}'
-
-Contact
-Owner: AOngomefen
+- [ ] Is the data anonymized or synthetic?
+- [ ] Is the data cleared for public distribution?
+- [ ] Is provenance and metadata documented?
 
 ---
+
+## Environment & Reproducibility
+
+Dependencies are pinned in `requirements.txt`. Notebooks use small, included sample datasets for full reproducibility. Where larger datasets are required, download instructions and graceful skip logic are embedded directly in the notebook.
+
+---
+
+## License & Attribution
+
+Code in this repository is available under the **MIT License**. Dataset-specific licenses and citation instructions are documented in `data/<dataset>/README.md` for each included source.
+
+---
+
+## Contact
+
+**Andrea Ongomefen**
+[github.com/AOngomefen](https://github.com/AOngomefen) · [linkedin.com/in/andreaongomefen](https://linkedin.com/in/andreaongomefen)
